@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_group_headers",
+  "info": {
+    "displayName": "Header",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Navigation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.navigation",
+      "required": true
+    },
+    "i18nLocale": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.i18n-locale",
+      "required": true
+    },
+    "Action": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.action-call",
+      "required": true
+    }
+  }
+}

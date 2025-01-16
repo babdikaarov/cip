@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_usefull_links",
+  "info": {
+    "displayName": "UsefullLinks",
+    "icon": "link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "i18nUsefullLinks": {
+      "type": "string",
+      "required": true
+    },
+    "URLs": {
+      "displayName": "URLs",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.ur-ls",
+      "required": true
+    }
+  }
+}

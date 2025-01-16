@@ -1,0 +1,73 @@
+services:
+   nginx:
+      container_name: nginx
+      image: "nginx:1.13-alpine"
+      restart: unless-stopped
+      ports:
+         - "80:80"
+         - "443:443"
+      volumes:
+         - ../nginx/main.config/nginx.conf:/etc/nginx/nginx.conf
+         - ../nginx/conf.prod:/etc/nginx/conf.d
+         - "/etc/letsencrypt:/etc/letsencrypt"
+      networks:
+         - nginx_network
+
+   client:
+      container_name: client
+      build:
+         context: ../client
+         dockerfile: Dockerfile
+      restart: unless-stopped
+      ports:
+         - "3000:3000"
+      networks:
+         - nginx_network
+         - strapi_network
+      environment:
+         HOSTNAME: "client"
+         BASE_URL: "https://????????"
+         CMS_API: "http://strapi:1337"
+   strapi-db:
+      container_name: strapi_db
+      image: "postgres:16-alpine"
+      restart: unless-stopped
+      ports:
+         - "5433:5432"
+      env_file:
+         - ./envs/cmsdb/.env
+      volumes:
+         - "../cms_data/cms_prod.sql:/docker-entrypoint-initdb.d/cms_prod.sql"
+         - "strapi_db_data:/var/lib/postgresql/data"
+      user: postgres
+      networks:
+         - strapi_network
+   strapi:
+      container_name: strapi
+      build:
+         context: ../cms
+         dockerfile: Dockerfile
+      restart: unless-stopped
+      env_file:
+         - ./envs/cms/.env
+      volumes:
+         - "strapi_uploads:/opt/app/public/uploads"
+         - "../cms/config:/opt/app/config"
+         - "../cms/src:/opt/app/src"
+         - "../cms/package.json:/opt/package.json"
+         - "../cms/yarn.lock:/opt/yarn.lock"
+      ports:
+         - "1337:1337"
+      networks:
+         - nginx_network
+         - strapi_network
+      depends_on:
+         strapi-db:
+            condition: service_started
+volumes:
+
+networks:
+   strapi_network:
+      driver: bridge
+   nginx_network:
+      driver: bridge

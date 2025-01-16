@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_group_footers",
+  "info": {
+    "displayName": "Footer",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Navigation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.navigation"
+    },
+    "LegalTerms": {
+      "displayName": "LegalTerms",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.legal-terms",
+      "required": true
+    },
+    "Contacts": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.contacts",
+      "required": true
+    },
+    "UsefullLinks": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.usefull-links"
+    }
+  }
+}

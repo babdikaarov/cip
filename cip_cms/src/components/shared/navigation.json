@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_navigations",
+  "info": {
+    "displayName": "navigation",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "main": {
+      "type": "string",
+      "required": true
+    },
+    "about": {
+      "type": "string",
+      "required": true
+    },
+    "residents": {
+      "type": "string",
+      "required": true
+    },
+    "blog": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

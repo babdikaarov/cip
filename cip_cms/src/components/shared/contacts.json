@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_contacts",
+  "info": {
+    "displayName": "Contacts",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "Phone": {
+      "type": "biginteger",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "Address": {
+      "type": "string",
+      "required": true
+    },
+    "i18nContacts": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

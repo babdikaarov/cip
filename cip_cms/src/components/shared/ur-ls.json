@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_ur_ls",
+  "info": {
+    "displayName": "URLs",
+    "icon": "link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "URL": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

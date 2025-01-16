@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_i18n_locales",
+  "info": {
+    "displayName": "i18nLocale",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "english": {
+      "type": "string",
+      "required": true
+    },
+    "russian": {
+      "type": "string",
+      "required": true
+    },
+    "kyrgyz": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

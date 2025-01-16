@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_legal_terms",
+  "info": {
+    "displayName": "LegalTerms",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "copyrights": {
+      "type": "string",
+      "required": true
+    },
+    "TermsOfUse": {
+      "type": "string",
+      "required": true
+    },
+    "PrivacyPolicy": {
+      "type": "string",
+      "required": true
+    },
+    "DataUsage": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
