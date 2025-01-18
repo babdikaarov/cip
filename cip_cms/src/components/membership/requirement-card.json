@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_membership_requirement_cards",
+  "info": {
+    "displayName": "RequirementCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "membership.requirement-list",
+      "required": true
+    }
+  }
+}

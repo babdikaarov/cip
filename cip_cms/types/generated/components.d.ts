@@ -8,6 +8,7 @@ export interface GroupFooter extends Struct.ComponentSchema {
       icon: "bulletList";
    };
    attributes: {
+      Appreciation: Schema.Attribute.Component<"shared.appreciation", false> & Schema.Attribute.Required;
       Contacts: Schema.Attribute.Component<"shared.contacts", false> & Schema.Attribute.Required;
       Icon: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
       LegalTerms: Schema.Attribute.Component<"shared.legal-terms", false> & Schema.Attribute.Required;
@@ -30,6 +31,105 @@ export interface GroupHeader extends Struct.ComponentSchema {
    };
 }
 
+export interface GroupMembership extends Struct.ComponentSchema {
+   collectionName: "components_group_memberships";
+   info: {
+      description: "";
+      displayName: "Membership";
+   };
+   attributes: {
+      button: Schema.Attribute.String & Schema.Attribute.Required;
+      FAQ: Schema.Attribute.Component<"membership.requirement", false> & Schema.Attribute.Required;
+      NLA: Schema.Attribute.Component<"membership.documents", false> & Schema.Attribute.Required;
+      note: Schema.Attribute.String;
+      Requirement: Schema.Attribute.Component<"membership.requirement", false>;
+      Steps: Schema.Attribute.Component<"membership.steps-to-membership", false> & Schema.Attribute.Required;
+      Submit: Schema.Attribute.Component<"membership.requirement", false> & Schema.Attribute.Required;
+      title: Schema.Attribute.String & Schema.Attribute.Required;
+   };
+}
+
+export interface MembershipDocuments extends Struct.ComponentSchema {
+   collectionName: "components_membership_documents";
+   info: {
+      description: "";
+      displayName: "Documents";
+   };
+   attributes: {
+      title: Schema.Attribute.String & Schema.Attribute.Required;
+      URLs: Schema.Attribute.Component<"membership.requirement-list", true>;
+   };
+}
+
+export interface MembershipRequirement extends Struct.ComponentSchema {
+   collectionName: "components_membership_requirements";
+   info: {
+      description: "";
+      displayName: "Requirement";
+   };
+   attributes: {
+      cards: Schema.Attribute.Component<"membership.requirement-card", true> & Schema.Attribute.Required;
+      note: Schema.Attribute.Text & Schema.Attribute.Required;
+      title: Schema.Attribute.String & Schema.Attribute.Required;
+   };
+}
+
+export interface MembershipRequirementCard extends Struct.ComponentSchema {
+   collectionName: "components_membership_requirement_cards";
+   info: {
+      description: "";
+      displayName: "RequirementCard";
+   };
+   attributes: {
+      list: Schema.Attribute.Component<"membership.requirement-list", true> & Schema.Attribute.Required;
+      title: Schema.Attribute.String & Schema.Attribute.Required;
+   };
+}
+
+export interface MembershipRequirementList extends Struct.ComponentSchema {
+   collectionName: "components_membership_requirement_lists";
+   info: {
+      displayName: "RequirementList";
+   };
+   attributes: {
+      list: Schema.Attribute.Text & Schema.Attribute.Required;
+   };
+}
+
+export interface MembershipStepsCard extends Struct.ComponentSchema {
+   collectionName: "components_membership_steps_cards";
+   info: {
+      displayName: "stepsCard";
+   };
+   attributes: {
+      button: Schema.Attribute.String & Schema.Attribute.Required;
+      context: Schema.Attribute.Text & Schema.Attribute.Required;
+      step: Schema.Attribute.Integer &
+         Schema.Attribute.Required &
+         Schema.Attribute.Unique &
+         Schema.Attribute.SetMinMax<
+            {
+               min: 1;
+            },
+            number
+         >;
+      title: Schema.Attribute.String & Schema.Attribute.Required;
+      Url: Schema.Attribute.String;
+   };
+}
+
+export interface MembershipStepsToMembership extends Struct.ComponentSchema {
+   collectionName: "components_membership_steps_to_memberships";
+   info: {
+      description: "";
+      displayName: "StepsToMembership";
+   };
+   attributes: {
+      card: Schema.Attribute.Component<"membership.steps-card", true>;
+      title: Schema.Attribute.String & Schema.Attribute.Required;
+   };
+}
+
 export interface SharedActionCall extends Struct.ComponentSchema {
    collectionName: "components_shared_action_calls";
    info: {
@@ -39,6 +139,17 @@ export interface SharedActionCall extends Struct.ComponentSchema {
    attributes: {
       login: Schema.Attribute.String & Schema.Attribute.Required;
       register: Schema.Attribute.String & Schema.Attribute.Required;
+   };
+}
+
+export interface SharedAppreciation extends Struct.ComponentSchema {
+   collectionName: "components_shared_appreciations";
+   info: {
+      displayName: "appreciation";
+   };
+   attributes: {
+      icon: Schema.Attribute.Media<"images"> & Schema.Attribute.Required;
+      title: Schema.Attribute.String & Schema.Attribute.Required;
    };
 }
 
@@ -128,7 +239,15 @@ declare module "@strapi/strapi" {
       export interface ComponentSchemas {
          "group.footer": GroupFooter;
          "group.header": GroupHeader;
+         "group.membership": GroupMembership;
+         "membership.documents": MembershipDocuments;
+         "membership.requirement": MembershipRequirement;
+         "membership.requirement-card": MembershipRequirementCard;
+         "membership.requirement-list": MembershipRequirementList;
+         "membership.steps-card": MembershipStepsCard;
+         "membership.steps-to-membership": MembershipStepsToMembership;
          "shared.action-call": SharedActionCall;
+         "shared.appreciation": SharedAppreciation;
          "shared.contacts": SharedContacts;
          "shared.i18n-locale": SharedI18NLocale;
          "shared.legal-terms": SharedLegalTerms;

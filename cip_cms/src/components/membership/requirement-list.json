@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_membership_requirement_lists",
+  "info": {
+    "displayName": "RequirementList"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

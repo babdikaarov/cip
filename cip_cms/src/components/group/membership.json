@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_group_memberships",
+  "info": {
+    "displayName": "Membership",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "Steps": {
+      "type": "component",
+      "repeatable": false,
+      "component": "membership.steps-to-membership",
+      "required": true
+    },
+    "Requirement": {
+      "type": "component",
+      "repeatable": false,
+      "component": "membership.requirement"
+    },
+    "Submit": {
+      "type": "component",
+      "repeatable": false,
+      "component": "membership.requirement",
+      "required": true
+    },
+    "FAQ": {
+      "type": "component",
+      "repeatable": false,
+      "component": "membership.requirement",
+      "required": true
+    },
+    "NLA": {
+      "displayName": "Documents",
+      "type": "component",
+      "repeatable": false,
+      "component": "membership.documents",
+      "required": true
+    },
+    "button": {
+      "type": "string",
+      "required": true
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

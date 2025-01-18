@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_membership_requirements",
+  "info": {
+    "displayName": "Requirement",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "membership.requirement-card",
+      "required": true
+    },
+    "note": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

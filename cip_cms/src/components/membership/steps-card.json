@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_membership_steps_cards",
+  "info": {
+    "displayName": "stepsCard"
+  },
+  "options": {},
+  "attributes": {
+    "step": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "unique": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "context": {
+      "type": "text",
+      "required": true
+    },
+    "button": {
+      "type": "string",
+      "required": true
+    },
+    "Url": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

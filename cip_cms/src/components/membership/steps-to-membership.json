@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_membership_steps_to_memberships",
+  "info": {
+    "displayName": "StepsToMembership",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "card": {
+      "type": "component",
+      "repeatable": true,
+      "component": "membership.steps-card"
+    }
+  }
+}

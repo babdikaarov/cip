@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_membership_documents",
+  "info": {
+    "displayName": "Documents",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "URLs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "membership.requirement-list"
+    }
+  }
+}
