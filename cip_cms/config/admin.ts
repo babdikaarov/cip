@@ -1,5 +1,6 @@
 export default ({ env }) => ({
-   // url: env("PUBLIC_ADMIN_URL", "/cms/admin"),
+   url: "/myadmin",
+   serveAdminPanel: true,
    auth: {
       secret: env("ADMIN_JWT_SECRET"),
    },

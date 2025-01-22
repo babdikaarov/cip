@@ -70,6 +70,7 @@ services:
       environment:
          - ADMINER_DEFAULT_SERVER=cip_cmsDB
       networks:
+         - shared_network
          - strapi_network
       depends_on:
          - cip_cmsDB
