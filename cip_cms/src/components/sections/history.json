@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_sections_histories",
+  "info": {
+    "displayName": "History"
+  },
+  "options": {},
+  "attributes": {
+    "History": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.td"
+    }
+  }
+}

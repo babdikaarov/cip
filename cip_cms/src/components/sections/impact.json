@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_impacts",
+  "info": {
+    "displayName": "Impact",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.description"
+    },
+    "Markdown": {
+      "type": "richtext"
+    },
+    "TextJson": {
+      "type": "blocks"
+    }
+  }
+}

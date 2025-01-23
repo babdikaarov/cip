@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_news",
+  "info": {
+    "displayName": "news",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cta.cta"
+    }
+  }
+}

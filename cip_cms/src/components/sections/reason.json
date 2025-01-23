@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_reasons",
+  "info": {
+    "displayName": "Reason",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "text"
+    },
+    "Stats": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.stats"
+    }
+  }
+}

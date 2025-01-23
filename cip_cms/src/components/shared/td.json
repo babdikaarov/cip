@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_tds",
+  "info": {
+    "displayName": "TitleDescription",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

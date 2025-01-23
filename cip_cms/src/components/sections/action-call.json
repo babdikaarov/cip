@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_action_calls",
+  "info": {
+    "displayName": "ActionCall"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cta.cta"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

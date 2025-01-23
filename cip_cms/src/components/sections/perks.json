@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_perks",
+  "info": {
+    "displayName": "Perks",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "Perk": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.simple-card",
+      "max": 3
+    }
+  }
+}

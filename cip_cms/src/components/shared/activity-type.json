@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_activity_types",
+  "info": {
+    "displayName": "ActivityType",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "activity": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.description"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "group1",
+        "group2",
+        "group3"
+      ]
+    }
+  }
+}

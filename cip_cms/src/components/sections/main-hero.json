@@ -1,0 +1,22 @@
+{
+   "collectionName": "components_sections_main_heroes",
+   "info": {
+      "displayName": "MainHero"
+   },
+   "options": {},
+   "attributes": {
+      "title": {
+         "type": "string"
+      },
+      "taxInfo": {
+         "type": "component",
+         "repeatable": false,
+         "component": "hero.taxintro"
+      },
+      "button": {
+         "type": "component",
+         "repeatable": false,
+         "component": "cta.cta"
+      }
+   }
+}

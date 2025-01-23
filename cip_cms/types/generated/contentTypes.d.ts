@@ -328,6 +328,69 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
    };
 }
 
+export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
+   collectionName: "about_pages";
+   info: {
+      description: "";
+      displayName: "AboutPage";
+      pluralName: "about-pages";
+      singularName: "about-page";
+   };
+   options: {
+      draftAndPublish: true;
+   };
+   pluginOptions: {
+      i18n: {
+         localized: true;
+      };
+   };
+   attributes: {
+      createdAt: Schema.Attribute.DateTime;
+      createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+      Hero: Schema.Attribute.Component<"hero.hero", false> &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      History: Schema.Attribute.Component<"shared.td", false> &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      Impact: Schema.Attribute.Component<"sections.impact", false> &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      locale: Schema.Attribute.String;
+      localizations: Schema.Attribute.Relation<"oneToMany", "api::about-page.about-page">;
+      publishedAt: Schema.Attribute.DateTime;
+      Reason: Schema.Attribute.Component<"sections.reason", false> &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      SupervisoryBoard: Schema.Attribute.Component<"shared.simple-card", true> &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      Team: Schema.Attribute.Component<"shared.simple-card", true> &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      updatedAt: Schema.Attribute.DateTime;
+      updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+   };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
    collectionName: "globals";
    info: {
@@ -337,7 +400,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
       singularName: "global";
    };
    options: {
-      draftAndPublish: false;
+      draftAndPublish: true;
    };
    pluginOptions: {
       i18n: {
@@ -368,6 +431,266 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
          }>;
       locale: Schema.Attribute.String;
       localizations: Schema.Attribute.Relation<"oneToMany", "api::global.global">;
+      publishedAt: Schema.Attribute.DateTime;
+      updatedAt: Schema.Attribute.DateTime;
+      updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+   };
+}
+
+export interface ApiIndustryListPageIndustryListPage extends Struct.SingleTypeSchema {
+   collectionName: "industry_list_pages";
+   info: {
+      description: "";
+      displayName: "IndustryListPage";
+      pluralName: "industry-list-pages";
+      singularName: "industry-list-page";
+   };
+   options: {
+      draftAndPublish: true;
+   };
+   pluginOptions: {
+      i18n: {
+         localized: true;
+      };
+   };
+   attributes: {
+      Categoryi18n: Schema.Attribute.Component<"shared.category", false> &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      createdAt: Schema.Attribute.DateTime;
+      createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+      list: Schema.Attribute.Component<"shared.activity-type", true> &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      locale: Schema.Attribute.String;
+      localizations: Schema.Attribute.Relation<"oneToMany", "api::industry-list-page.industry-list-page">;
+      publishedAt: Schema.Attribute.DateTime;
+      updatedAt: Schema.Attribute.DateTime;
+      updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+   };
+}
+
+export interface ApiMainPageMainPage extends Struct.SingleTypeSchema {
+   collectionName: "main_pages";
+   info: {
+      description: "";
+      displayName: "MainPage";
+      pluralName: "main-pages";
+      singularName: "main-page";
+   };
+   options: {
+      draftAndPublish: true;
+   };
+   pluginOptions: {
+      i18n: {
+         localized: true;
+      };
+   };
+   attributes: {
+      createdAt: Schema.Attribute.DateTime;
+      createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+      Hero: Schema.Attribute.Component<"sections.main-hero", false> &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      locale: Schema.Attribute.String;
+      localizations: Schema.Attribute.Relation<"oneToMany", "api::main-page.main-page">;
+      publishedAt: Schema.Attribute.DateTime;
+      Sections: Schema.Attribute.DynamicZone<
+         [
+            "sections.about",
+            "sections.membership",
+            "sections.residents",
+            "sections.perks",
+            "sections.news",
+            "sections.highlights",
+            "sections.faq",
+            "sections.action-call",
+         ]
+      > &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }> &
+         Schema.Attribute.SetMinMax<
+            {
+               max: 8;
+            },
+            number
+         >;
+      updatedAt: Schema.Attribute.DateTime;
+      updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+   };
+}
+
+export interface ApiNewNew extends Struct.CollectionTypeSchema {
+   collectionName: "news";
+   info: {
+      displayName: "news";
+      pluralName: "news";
+      singularName: "new";
+   };
+   options: {
+      draftAndPublish: true;
+   };
+   pluginOptions: {
+      i18n: {
+         localized: true;
+      };
+   };
+   attributes: {
+      createdAt: Schema.Attribute.DateTime;
+      createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+      locale: Schema.Attribute.String;
+      localizations: Schema.Attribute.Relation<"oneToMany", "api::new.new">;
+      publishedAt: Schema.Attribute.DateTime;
+      testClarifyDesignComponents: Schema.Attribute.String &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      updatedAt: Schema.Attribute.DateTime;
+      updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+   };
+}
+
+export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
+   collectionName: "news_pages";
+   info: {
+      displayName: "NewsPage";
+      pluralName: "news-pages";
+      singularName: "news-page";
+   };
+   options: {
+      draftAndPublish: true;
+   };
+   pluginOptions: {
+      i18n: {
+         localized: true;
+      };
+   };
+   attributes: {
+      createdAt: Schema.Attribute.DateTime;
+      createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+      Hero: Schema.Attribute.Component<"hero.hero", false> &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      locale: Schema.Attribute.String;
+      localizations: Schema.Attribute.Relation<"oneToMany", "api::news-page.news-page">;
+      publishedAt: Schema.Attribute.DateTime;
+      updatedAt: Schema.Attribute.DateTime;
+      updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+   };
+}
+
+export interface ApiResidentResident extends Struct.CollectionTypeSchema {
+   collectionName: "residents";
+   info: {
+      description: "";
+      displayName: "Residents";
+      pluralName: "residents";
+      singularName: "resident";
+   };
+   options: {
+      draftAndPublish: true;
+   };
+   pluginOptions: {
+      i18n: {
+         localized: true;
+      };
+   };
+   attributes: {
+      ActivityType: Schema.Attribute.String &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      code: Schema.Attribute.String &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      createdAt: Schema.Attribute.DateTime;
+      createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+      locale: Schema.Attribute.String;
+      localizations: Schema.Attribute.Relation<"oneToMany", "api::resident.resident">;
+      Logo: Schema.Attribute.Media<"images"> &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      Name: Schema.Attribute.String &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      publishedAt: Schema.Attribute.DateTime;
+      RegistrationDate: Schema.Attribute.Date &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      RegistrationNumber: Schema.Attribute.String &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      TIN: Schema.Attribute.String &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      updatedAt: Schema.Attribute.DateTime;
+      updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+   };
+}
+
+export interface ApiResidentsPageResidentsPage extends Struct.SingleTypeSchema {
+   collectionName: "residents_pages";
+   info: {
+      displayName: "ResidentsPage";
+      pluralName: "residents-pages";
+      singularName: "residents-page";
+   };
+   options: {
+      draftAndPublish: true;
+   };
+   pluginOptions: {
+      i18n: {
+         localized: true;
+      };
+   };
+   attributes: {
+      createdAt: Schema.Attribute.DateTime;
+      createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+      Hero: Schema.Attribute.Component<"hero.hero", false> &
+         Schema.Attribute.SetPluginOptions<{
+            i18n: {
+               localized: true;
+            };
+         }>;
+      locale: Schema.Attribute.String;
+      localizations: Schema.Attribute.Relation<"oneToMany", "api::residents-page.residents-page">;
       publishedAt: Schema.Attribute.DateTime;
       updatedAt: Schema.Attribute.DateTime;
       updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
@@ -663,7 +986,14 @@ declare module "@strapi/strapi" {
          "admin::transfer-token": AdminTransferToken;
          "admin::transfer-token-permission": AdminTransferTokenPermission;
          "admin::user": AdminUser;
+         "api::about-page.about-page": ApiAboutPageAboutPage;
          "api::global.global": ApiGlobalGlobal;
+         "api::industry-list-page.industry-list-page": ApiIndustryListPageIndustryListPage;
+         "api::main-page.main-page": ApiMainPageMainPage;
+         "api::new.new": ApiNewNew;
+         "api::news-page.news-page": ApiNewsPageNewsPage;
+         "api::resident.resident": ApiResidentResident;
+         "api::residents-page.residents-page": ApiResidentsPageResidentsPage;
          "plugin::content-releases.release": PluginContentReleasesRelease;
          "plugin::content-releases.release-action": PluginContentReleasesReleaseAction;
          "plugin::i18n.locale": PluginI18NLocale;

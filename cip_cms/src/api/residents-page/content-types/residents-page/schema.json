@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "residents_pages",
+  "info": {
+    "singularName": "residents-page",
+    "pluralName": "residents-pages",
+    "displayName": "ResidentsPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Hero": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "hero.hero"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_hero_tax_categories",
+  "info": {
+    "displayName": "taxCategories",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "taxValue": {
+      "type": "string"
+    },
+    "taxType": {
+      "type": "string"
+    }
+  }
+}

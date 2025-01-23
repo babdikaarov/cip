@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_sections_supervisory_boards",
+  "info": {
+    "displayName": "SupervisoryBoard"
+  },
+  "options": {},
+  "attributes": {
+    "BoardMember": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.simple-card"
+    }
+  }
+}

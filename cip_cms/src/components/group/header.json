@@ -2,7 +2,8 @@
   "collectionName": "components_group_headers",
   "info": {
     "displayName": "Header",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -22,11 +23,10 @@
       "component": "shared.i18n-locale",
       "required": true
     },
-    "Action": {
+    "login": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.action-call",
-      "required": true
+      "component": "cta.cta"
     }
   }
 }

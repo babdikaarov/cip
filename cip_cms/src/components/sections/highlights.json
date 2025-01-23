@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_sections_highlights",
+  "info": {
+    "displayName": "highlights"
+  },
+  "options": {},
+  "attributes": {
+    "testimonial": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.simple-card"
+    }
+  }
+}

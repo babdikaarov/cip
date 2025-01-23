@@ -1,5 +1,17 @@
 import type { Schema, Struct } from "@strapi/strapi";
 
+export interface CtaCta extends Struct.ComponentSchema {
+   collectionName: "components_cta_ctas";
+   info: {
+      displayName: "CTA";
+   };
+   attributes: {
+      title: Schema.Attribute.String;
+      type: Schema.Attribute.Enumeration<["primary", "secondary"]>;
+      URL: Schema.Attribute.String;
+   };
+}
+
 export interface GroupFooter extends Struct.ComponentSchema {
    collectionName: "components_group_footers";
    info: {
@@ -20,32 +32,55 @@ export interface GroupFooter extends Struct.ComponentSchema {
 export interface GroupHeader extends Struct.ComponentSchema {
    collectionName: "components_group_headers";
    info: {
+      description: "";
       displayName: "Header";
       icon: "bulletList";
    };
    attributes: {
-      Action: Schema.Attribute.Component<"shared.action-call", false> & Schema.Attribute.Required;
       i18nLocale: Schema.Attribute.Component<"shared.i18n-locale", false> & Schema.Attribute.Required;
+      login: Schema.Attribute.Component<"cta.cta", false>;
       Navigation: Schema.Attribute.Component<"shared.navigation", false> & Schema.Attribute.Required;
       Title: Schema.Attribute.String & Schema.Attribute.Required;
    };
 }
 
-export interface GroupMembership extends Struct.ComponentSchema {
-   collectionName: "components_group_memberships";
+export interface HeroHero extends Struct.ComponentSchema {
+   collectionName: "components_hero_heroes";
    info: {
-      description: "";
-      displayName: "Membership";
+      displayName: "Hero";
    };
    attributes: {
-      button: Schema.Attribute.String & Schema.Attribute.Required;
-      FAQ: Schema.Attribute.Component<"membership.requirement", false> & Schema.Attribute.Required;
-      NLA: Schema.Attribute.Component<"membership.documents", false> & Schema.Attribute.Required;
-      note: Schema.Attribute.String;
-      Requirement: Schema.Attribute.Component<"membership.requirement", false>;
-      Steps: Schema.Attribute.Component<"membership.steps-to-membership", false> & Schema.Attribute.Required;
-      Submit: Schema.Attribute.Component<"membership.requirement", false> & Schema.Attribute.Required;
-      title: Schema.Attribute.String & Schema.Attribute.Required;
+      title: Schema.Attribute.String;
+   };
+}
+
+export interface HeroTaxCategories extends Struct.ComponentSchema {
+   collectionName: "components_hero_tax_categories";
+   info: {
+      description: "";
+      displayName: "taxCategories";
+   };
+   attributes: {
+      taxType: Schema.Attribute.String;
+      taxValue: Schema.Attribute.String;
+   };
+}
+
+export interface HeroTaxintro extends Struct.ComponentSchema {
+   collectionName: "components_hero_taxintros";
+   info: {
+      description: "";
+      displayName: "taxintro";
+   };
+   attributes: {
+      taxCategories: Schema.Attribute.Component<"hero.tax-categories", true> &
+         Schema.Attribute.SetMinMax<
+            {
+               max: 4;
+            },
+            number
+         >;
+      title: Schema.Attribute.String;
    };
 }
 
@@ -130,6 +165,170 @@ export interface MembershipStepsToMembership extends Struct.ComponentSchema {
    };
 }
 
+export interface SectionsAbout extends Struct.ComponentSchema {
+   collectionName: "components_sections_abouts";
+   info: {
+      description: "";
+      displayName: "about";
+   };
+   attributes: {
+      button: Schema.Attribute.Component<"cta.cta", false>;
+      Description: Schema.Attribute.Text;
+   };
+}
+
+export interface SectionsActionCall extends Struct.ComponentSchema {
+   collectionName: "components_sections_action_calls";
+   info: {
+      displayName: "ActionCall";
+   };
+   attributes: {
+      button: Schema.Attribute.Component<"cta.cta", false>;
+      Image: Schema.Attribute.Media<"images">;
+      Title: Schema.Attribute.String;
+   };
+}
+
+export interface SectionsFaq extends Struct.ComponentSchema {
+   collectionName: "components_sections_faqs";
+   info: {
+      description: "";
+      displayName: "FAQ";
+   };
+   attributes: {
+      QA: Schema.Attribute.Component<"shared.td", true>;
+      Title: Schema.Attribute.String;
+   };
+}
+
+export interface SectionsHighlights extends Struct.ComponentSchema {
+   collectionName: "components_sections_highlights";
+   info: {
+      displayName: "highlights";
+   };
+   attributes: {
+      testimonial: Schema.Attribute.Component<"shared.simple-card", true>;
+   };
+}
+
+export interface SectionsHistory extends Struct.ComponentSchema {
+   collectionName: "components_sections_histories";
+   info: {
+      displayName: "History";
+   };
+   attributes: {
+      History: Schema.Attribute.Component<"shared.td", false>;
+   };
+}
+
+export interface SectionsImpact extends Struct.ComponentSchema {
+   collectionName: "components_sections_impacts";
+   info: {
+      description: "";
+      displayName: "Impact";
+   };
+   attributes: {
+      list: Schema.Attribute.Component<"shared.description", true>;
+      Markdown: Schema.Attribute.RichText;
+      TextJson: Schema.Attribute.Blocks;
+      Title: Schema.Attribute.String;
+   };
+}
+
+export interface SectionsMainHero extends Struct.ComponentSchema {
+   collectionName: "components_sections_main_heroes";
+   info: {
+      displayName: "MainHero";
+   };
+   attributes: {
+      button: Schema.Attribute.Component<"cta.cta", false>;
+      taxInfo: Schema.Attribute.Component<"hero.taxintro", false>;
+      title: Schema.Attribute.String;
+   };
+}
+
+export interface SectionsMembership extends Struct.ComponentSchema {
+   collectionName: "components_group_memberships";
+   info: {
+      description: "";
+      displayName: "Membership";
+   };
+   attributes: {
+      button: Schema.Attribute.String & Schema.Attribute.Required;
+      FAQ: Schema.Attribute.Component<"membership.requirement", false> & Schema.Attribute.Required;
+      NLA: Schema.Attribute.Component<"membership.documents", false> & Schema.Attribute.Required;
+      note: Schema.Attribute.String;
+      Requirement: Schema.Attribute.Component<"membership.requirement", false>;
+      Steps: Schema.Attribute.Component<"membership.steps-to-membership", false> & Schema.Attribute.Required;
+      Submit: Schema.Attribute.Component<"membership.requirement", false> & Schema.Attribute.Required;
+      title: Schema.Attribute.String & Schema.Attribute.Required;
+   };
+}
+
+export interface SectionsNews extends Struct.ComponentSchema {
+   collectionName: "components_sections_news";
+   info: {
+      description: "";
+      displayName: "news";
+   };
+   attributes: {
+      button: Schema.Attribute.Component<"cta.cta", false>;
+      Title: Schema.Attribute.String;
+   };
+}
+
+export interface SectionsPerks extends Struct.ComponentSchema {
+   collectionName: "components_sections_perks";
+   info: {
+      description: "";
+      displayName: "Perks";
+   };
+   attributes: {
+      Perk: Schema.Attribute.Component<"shared.simple-card", true> &
+         Schema.Attribute.SetMinMax<
+            {
+               max: 3;
+            },
+            number
+         >;
+      title: Schema.Attribute.String;
+   };
+}
+
+export interface SectionsReason extends Struct.ComponentSchema {
+   collectionName: "components_sections_reasons";
+   info: {
+      description: "";
+      displayName: "Reason";
+   };
+   attributes: {
+      Description: Schema.Attribute.Text;
+      Stats: Schema.Attribute.Component<"shared.stats", false>;
+   };
+}
+
+export interface SectionsResidents extends Struct.ComponentSchema {
+   collectionName: "components_sections_residents";
+   info: {
+      description: "";
+      displayName: "Residents";
+   };
+   attributes: {
+      button: Schema.Attribute.Component<"cta.cta", false>;
+      title: Schema.Attribute.String;
+   };
+}
+
+export interface SectionsSupervisoryBoard extends Struct.ComponentSchema {
+   collectionName: "components_sections_supervisory_boards";
+   info: {
+      displayName: "SupervisoryBoard";
+   };
+   attributes: {
+      BoardMember: Schema.Attribute.Component<"shared.simple-card", true>;
+   };
+}
+
 export interface SharedActionCall extends Struct.ComponentSchema {
    collectionName: "components_shared_action_calls";
    info: {
@@ -139,6 +338,20 @@ export interface SharedActionCall extends Struct.ComponentSchema {
    attributes: {
       login: Schema.Attribute.String & Schema.Attribute.Required;
       register: Schema.Attribute.String & Schema.Attribute.Required;
+   };
+}
+
+export interface SharedActivityType extends Struct.ComponentSchema {
+   collectionName: "components_shared_activity_types";
+   info: {
+      description: "";
+      displayName: "ActivityType";
+   };
+   attributes: {
+      activity: Schema.Attribute.String;
+      category: Schema.Attribute.Enumeration<["group1", "group2", "group3"]>;
+      code: Schema.Attribute.String;
+      list: Schema.Attribute.Component<"shared.description", true>;
    };
 }
 
@@ -153,6 +366,18 @@ export interface SharedAppreciation extends Struct.ComponentSchema {
    };
 }
 
+export interface SharedCategory extends Struct.ComponentSchema {
+   collectionName: "components_shared_categories";
+   info: {
+      displayName: "category";
+   };
+   attributes: {
+      group1: Schema.Attribute.String;
+      group2: Schema.Attribute.String;
+      group3: Schema.Attribute.String;
+   };
+}
+
 export interface SharedContacts extends Struct.ComponentSchema {
    collectionName: "components_shared_contacts";
    info: {
@@ -164,6 +389,16 @@ export interface SharedContacts extends Struct.ComponentSchema {
       Email: Schema.Attribute.Email & Schema.Attribute.Required;
       i18nContacts: Schema.Attribute.String & Schema.Attribute.Required;
       Phone: Schema.Attribute.BigInteger & Schema.Attribute.Required;
+   };
+}
+
+export interface SharedDescription extends Struct.ComponentSchema {
+   collectionName: "components_shared_descriptions";
+   info: {
+      displayName: "Description";
+   };
+   attributes: {
+      Description: Schema.Attribute.Text;
    };
 }
 
@@ -209,6 +444,42 @@ export interface SharedNavigation extends Struct.ComponentSchema {
    };
 }
 
+export interface SharedSimpleCard extends Struct.ComponentSchema {
+   collectionName: "components_shared_simple_cards";
+   info: {
+      description: "";
+      displayName: "SimpleCard";
+   };
+   attributes: {
+      description: Schema.Attribute.Text;
+      image: Schema.Attribute.Media<"images">;
+      title: Schema.Attribute.String;
+   };
+}
+
+export interface SharedStats extends Struct.ComponentSchema {
+   collectionName: "components_shared_stats";
+   info: {
+      displayName: "Stats";
+   };
+   attributes: {
+      ProjectStart: Schema.Attribute.Component<"shared.td", false>;
+      TotalResidents: Schema.Attribute.Component<"shared.td", false>;
+   };
+}
+
+export interface SharedTd extends Struct.ComponentSchema {
+   collectionName: "components_shared_tds";
+   info: {
+      description: "";
+      displayName: "TitleDescription";
+   };
+   attributes: {
+      Description: Schema.Attribute.Text;
+      Title: Schema.Attribute.String;
+   };
+}
+
 export interface SharedUrLs extends Struct.ComponentSchema {
    collectionName: "components_shared_ur_ls";
    info: {
@@ -237,21 +508,43 @@ export interface SharedUsefullLinks extends Struct.ComponentSchema {
 declare module "@strapi/strapi" {
    export module Public {
       export interface ComponentSchemas {
+         "cta.cta": CtaCta;
          "group.footer": GroupFooter;
          "group.header": GroupHeader;
-         "group.membership": GroupMembership;
+         "hero.hero": HeroHero;
+         "hero.tax-categories": HeroTaxCategories;
+         "hero.taxintro": HeroTaxintro;
          "membership.documents": MembershipDocuments;
          "membership.requirement": MembershipRequirement;
          "membership.requirement-card": MembershipRequirementCard;
          "membership.requirement-list": MembershipRequirementList;
          "membership.steps-card": MembershipStepsCard;
          "membership.steps-to-membership": MembershipStepsToMembership;
+         "sections.about": SectionsAbout;
+         "sections.action-call": SectionsActionCall;
+         "sections.faq": SectionsFaq;
+         "sections.highlights": SectionsHighlights;
+         "sections.history": SectionsHistory;
+         "sections.impact": SectionsImpact;
+         "sections.main-hero": SectionsMainHero;
+         "sections.membership": SectionsMembership;
+         "sections.news": SectionsNews;
+         "sections.perks": SectionsPerks;
+         "sections.reason": SectionsReason;
+         "sections.residents": SectionsResidents;
+         "sections.supervisory-board": SectionsSupervisoryBoard;
          "shared.action-call": SharedActionCall;
+         "shared.activity-type": SharedActivityType;
          "shared.appreciation": SharedAppreciation;
+         "shared.category": SharedCategory;
          "shared.contacts": SharedContacts;
+         "shared.description": SharedDescription;
          "shared.i18n-locale": SharedI18NLocale;
          "shared.legal-terms": SharedLegalTerms;
          "shared.navigation": SharedNavigation;
+         "shared.simple-card": SharedSimpleCard;
+         "shared.stats": SharedStats;
+         "shared.td": SharedTd;
          "shared.ur-ls": SharedUrLs;
          "shared.usefull-links": SharedUsefullLinks;
       }

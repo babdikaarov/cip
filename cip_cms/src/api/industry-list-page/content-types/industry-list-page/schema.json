@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "industry_list_pages",
+  "info": {
+    "singularName": "industry-list-page",
+    "pluralName": "industry-list-pages",
+    "displayName": "IndustryListPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.activity-type"
+    },
+    "Categoryi18n": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.category"
+    }
+  }
+}

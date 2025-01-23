@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_residents",
+  "info": {
+    "displayName": "Residents",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cta.cta"
+    }
+  }
+}

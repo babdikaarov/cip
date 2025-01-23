@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_faqs",
+  "info": {
+    "displayName": "FAQ",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "QA": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.td"
+    }
+  }
+}
